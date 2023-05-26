@@ -1,27 +1,28 @@
+#Install tkinter on cmd using "pip install tk"
+
+#import files/modules
 from tkinter import *
 from tkinter import messagebox
-import time
+#main programming session
 
-root = Tk()
-root.title("Confession")
-root.geometry("550x200")
-root.configure(background="dark red")
+windows = Tk()
+windows.title("Confession")
+#windows.geometry("420x200")
+windows.configure(background="dark red")
 
-txt = Label(root, text="I like you, would you be my girlfriend?",bg="dark red",fg="black", font=("Arial Bold",20))
+txt = Label(windows, text="I like you, would you like to be my girlfriend?", bg="dark red", fg="black", font=("Arial Bold", 20))
 txt.grid(column=0,row=0)
 
 def Yes_button():
-    messagebox.showinfo("Accepted","YEHEY!!! <3")
+    messagebox.showinfo("Accepted","I am very glad to have your respond")
 
-btn = Button(root, text="Yes",command= Yes_button, font=("Arial Bold",20))
+btn = Button(windows, text="Yes", command=Yes_button, font=("Arial Bold", 20))
 btn.grid(column=0,row=1)
 
 def No_button():
-    while True:
-        messagebox.showinfo("Rejection","PLEASEEEE!!!!")
-        time.sleep(0.1)
+    messagebox.showinfo("Rejection","Maybe anytime soon, I wont give up")
 
-btn1 = Button(root, text="No", command= No_button, font=("Arial Bold", 20))
+btn1 = Button(windows, text="No", command=No_button, font=("Arial Bold",20))
 btn1.grid(column=0,row=2)
 
-root.mainloop()
+windows.mainloop()
