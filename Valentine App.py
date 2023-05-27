@@ -1,3 +1,7 @@
+#Download the tkinter package on cmd using 'pip install tkinter'
+
+
+
 #import files/modules
 import time
 from tkinter import *
