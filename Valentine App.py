@@ -1,35 +1,65 @@
 #Download the tkinter package on cmd using 'pip install tkinter'
+#Download the turtle package on cmd using 'pip install turtle'
+
 
 
 
 #import files/modules
-import time
 from tkinter import *
 from tkinter import messagebox
-
-
+import turtle
+import time
 #main programming session
-window = Tk()
-window.title("Confession")
-window.configure(background= "dark red")
 
-#Creating a text
-txt = Label(window, text="I like you, would you like to be my girl friend?", bg="dark red", fg="black", font=("Arial Bold",20))
+windows = Tk()
+windows.title("Confession")
+#windows.geometry("420x200")
+windows.configure(background="dark red")
+
+txt = Label(windows, text="I like you, would you like to be my girlfriend?", bg="dark red", fg="black", font=("Arial Bold", 20))
 txt.grid(column=0,row=0)
 
-#creating a functionning buttons
+#functioning buttons
 def Yes_button():
-    messagebox.showinfo("Accepted","I am glad to have your respond")
+    messagebox.showinfo("Accepted","I am very glad to have your respond")
+    #turtle art code
+    pen = turtle.Turtle()
 
-btn = Button(window, text="Yes", command=Yes_button, font=("Arial Bold",20))
+    def curver():
+        for i in range(200):
+            pen.right(1)
+            pen.forward(1)
+    def heart():
+        pen.fillcolor('red')
+        pen.begin_fill()
+        pen.left(140)
+        pen.forward(113)
+        curver()
+        pen.left(120)
+        curver()
+        pen.forward(112)
+        pen.end_fill()
+
+    def txt():
+        pen.up()
+        pen.setpos(-68, 95)
+        pen.down()
+        pen.color('lightgreen')
+        pen.write('I LOVE YOU', font=("Verdana",12,"bold"))
+
+    heart()
+    txt()
+    pen.ht()
+    time.sleep(10)
+
+    
+btn = Button(windows, text="Yes", command=Yes_button, font=("Arial Bold", 20))
 btn.grid(column=0,row=1)
 
 def No_button():
-    while True:
-        messagebox.showinfo("Rejection","PLEASE")
-        time.sleep(0.1)
-                        
-btn1 = Button(window, text='No', command=No_button, font=("Arial Bold",20))
+    messagebox.showinfo("Rejection","Maybe anytime soon, I wont give up")
+
+btn1 = Button(windows, text="No", command=No_button, font=("Arial Bold",20))
 btn1.grid(column=0,row=2)
 
-window.mainloop()
+windows.mainloop()
